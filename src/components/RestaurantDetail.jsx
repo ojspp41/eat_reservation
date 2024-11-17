@@ -18,7 +18,19 @@ const RestaurantDetail = () => {
       [menuId]: value > 0 ? value : 1, // 최소값 1 유지
     }));
   };
+  const incrementQuantity = (menuId) => {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [menuId]: (prevQuantities[menuId] || 1) + 1,
+    }));
+  };
 
+  const decrementQuantity = (menuId) => {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [menuId]: Math.max((prevQuantities[menuId] || 1) - 1, 1),
+    }));
+  };
   const updateCartItemQuantity = (menuId, value) => {
     if (value <= 0) {
       removeFromCart(menuId);
@@ -30,7 +42,23 @@ const RestaurantDetail = () => {
       );
     }
   };
+  const incrementCartItem = (menuId) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === menuId ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
 
+  const decrementCartItem = (menuId) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === menuId
+          ? { ...item, quantity: Math.max(item.quantity - 1, 1) }
+          : item
+      )
+    );
+  };
   const addToCart = (menu) => {
     const existingItem = cart.find((item) => item.id === menu.id);
     const quantity = quantities[menu.id] || 1;
@@ -61,6 +89,8 @@ const RestaurantDetail = () => {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+  const incrementPeople = () => setPeople((prev) => prev + 1);
+  const decrementPeople = () => setPeople((prev) => Math.max(prev - 1, 1));
 
   const handleKakaoPay = () => {
     if (people <= 0 || totalPrice <= 0) {
@@ -94,15 +124,31 @@ const RestaurantDetail = () => {
               alt="메뉴 아이콘"
               className="menu-icon"
             />
-            <span>{menu.name}</span>
+            <span className="menu-titles">{menu.name}</span>
             <span className="menu-price">{menu.price}원</span>
-            <input
-              type="number"
-              min="1"
-              value={quantities[menu.id] || 1}
-              onChange={(e) => handleQuantityChange(menu.id, Number(e.target.value))}
-              className="quantity-input"
-            />
+            <div className="quantity-controls">
+              <button
+                onClick={() => decrementQuantity(menu.id)}
+                className="quantity-button"
+              >
+                -
+              </button>
+              <input
+                type="number"
+                min="1"
+                value={quantities[menu.id] || 1}
+                onChange={(e) =>
+                  handleQuantityChange(menu.id, Number(e.target.value))
+                }
+                className="quantity-input"
+              />
+              <button
+                onClick={() => incrementQuantity(menu.id)}
+                className="quantity-button"
+              >
+                +
+              </button>
+            </div>
             <button onClick={() => addToCart(menu)}>담기</button>
           </li>
         ))}
@@ -117,15 +163,29 @@ const RestaurantDetail = () => {
               className="cart-icon"
             />
             <span>{item.name}</span>
-            <input
-              type="number"
-              min="1"
-              value={item.quantity}
-              onChange={(e) =>
-                updateCartItemQuantity(item.id, Number(e.target.value))
-              }
-              className="quantity-input"
-            />
+            <div className="quantity-controls">
+              <button
+                onClick={() => decrementCartItem(item.id)}
+                className="quantity-button"
+              >
+                -
+              </button>
+              <input
+                type="number"
+                min="1"
+                value={item.quantity}
+                onChange={(e) =>
+                  updateCartItemQuantity(item.id, Number(e.target.value))
+                }
+                className="quantity-input"
+              />
+              <button
+                onClick={() => incrementCartItem(item.id)}
+                className="quantity-button"
+              >
+                +
+              </button>
+            </div>
             <span className="cart-price">
               {item.price * item.quantity}원
             </span>
@@ -140,13 +200,22 @@ const RestaurantDetail = () => {
       </ul>
       <div className="reservation-info">
         <label htmlFor="people">인원수:</label>
-        <input
-          type="number"
-          id="people"
-          value={people}
-          onChange={(e) => setPeople(Number(e.target.value))}
-          min="1"
-        />
+        <div className="quantity-controls">
+          <button onClick={decrementPeople} className="quantity-button">
+            -
+          </button>
+          <input
+            type="number"
+            id="people"
+            value={people}
+            onChange={(e) => setPeople(Math.max(Number(e.target.value), 1))}
+            min="1"
+            className="quantity-input"
+          />
+          <button onClick={incrementPeople} className="quantity-button">
+            +
+          </button>
+        </div>
         {isReservationAvailable ? (
           <span className="reservation-available">예약 가능</span>
         ) : (
