@@ -1,0 +1,161 @@
+/* src/css/RestaurantList.css */
+
+.restaurant-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* 카드 사이의 간격 */
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto; /* 가운데 정렬 */
+  }
+  
+  .restaurant-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* 둥근 모서리 */
+    overflow: hidden; /* 모서리 밖 내용 숨기기 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    transition: transform 0.2s; /* 호버 시 애니메이션 */
+    cursor: pointer;
+  }
+  
+  .restaurant-card:hover {
+    transform: translateY(-5px); /* 호버 시 위로 살짝 올라감 */
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 150px; /* 높이를 조정하여 카드 크기 조절 */
+    object-fit: cover; /* 이미지가 카드에 맞게 */
+  }
+  
+  .card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+  }
+  
+  .card-content button {
+    padding: 8px 16px;
+    background-color: #ff6b6b; /* 버튼 배경색 */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+    margin-right: auto;
+  }
+  
+  .card-content button:hover {
+    background-color: #ff4757; /* 버튼 호버 색상 */
+  }
+  
+  /* 반응형 디자인 */
+ /* Splash screen styles */
+/* Splash screen styles */
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.splash-title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.splash-description {
+  font-size: 20px;
+  color: #555;
+}
+
+/* Main content styles */
+.restaurant-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.restaurant-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-content h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.card-content button {
+  padding: 8px 16px;
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.card-content button:hover {
+  background-color: #ff4757;
+}

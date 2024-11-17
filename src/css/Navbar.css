@@ -1,0 +1,52 @@
+/* src/css/Navbar.css */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  
+  .back-button img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .title {
+    flex-grow: 1;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* 로고 스타일 */
+  /* src/css/Navbar.css */
+
+/* 로고 컨테이너 */
+.logo-container {
+    display: flex;
+    align-items: center; /* 이미지와 텍스트 세로 정렬 */
+    justify-content: center; /* 전체 중앙 정렬 */
+    gap: 10px; /* 이미지와 텍스트 간격 */
+    height: 50px; /* 전체 높이 설정 (조정 가능) */
+  }
+  
+  /* 로고 이미지 */
+  .main-logo {
+    height: 100%; /* 컨테이너 높이에 맞추기 */
+    object-fit: contain; /* 이미지가 컨테이너 안에 들어가도록 */
+  }
+  
+  /* 로고 텍스트 */
+  .logo-text {
+    font-size: 24px; /* 텍스트 크기 */
+    font-weight: bold;
+  }

@@ -1,0 +1,212 @@
+.restaurant-detail {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+.restaurant-name {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu-title,
+.cart-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.menu-list,
+.cart-list {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-item,
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.menu-item img,
+.cart-item img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.menu-price,
+.cart-price {
+  font-size: 16px;
+  color: #333;
+}
+
+.menu-item button {
+  background-color: #646b70;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.menu-item button:hover {
+  background-color: #0056b3;
+}
+
+.reservation-info {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.reservation-info label {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.reservation-info input {
+  width: 60px;
+  padding: 5px;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.reservation-available {
+  color: green;
+  font-weight: bold;
+}
+
+.reservation-unavailable {
+  color: red;
+  font-weight: bold;
+}
+
+.total-price {
+  font-size: 18px;
+  text-align: right;
+  margin: 20px 0;
+}
+
+.payment-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.payment-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.payment-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+/* 메뉴 수량 입력 필드 */
+.quantity-input {
+  width: 50px;
+  text-align: center;
+  margin: 0 10px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* 장바구니 제거 버튼 */
+.remove-button {
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.remove-button:hover {
+  background-color: #e04e4e;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantity-input {
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+.payment-buttons {
+  display: flex;
+  flex-direction: column; /* Align buttons vertically */
+  gap: 10px; /* Add spacing between buttons */
+  margin: 20px 0;
+}
+
+.kakao-pay-button,
+.naver-pay-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%; /* Full width for buttons */
+  text-align: center;
+}
+
+.kakao-pay-button {
+  background-color: #fee500;
+  color: #000;
+}
+
+.kakao-pay-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.kakao-pay-button:hover:not(:disabled) {
+  background-color: #ffd700;
+}
+
+.naver-pay-button {
+  background-color: #03c75a;
+  color: #fff;
+}
+
+.naver-pay-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.naver-pay-button:hover:not(:disabled) {
+  background-color: #02b151;
+}
