@@ -1,10 +1,8 @@
-// src/components/Navbar.jsx
-
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../css/Navbar.css'; // CSS 파일 임포트
 
-const Navbar = () => {
+const Navbar = ({ isCelebrityMode, toggleMode }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -25,10 +23,24 @@ const Navbar = () => {
         </>
       ) : (
         <div className="logo-container">
-            <img src="/images/main-logo.jpg" alt="메인 로고" className="main-logo" />
-            <strong className='logo-text'>식도락</strong>    
+          <img src="/images/dosirock.png" alt="메인 로고" className="main-logo" />
+          <strong className="logo-text">식도락</strong>
         </div>
       )}
+      <div className="mode-toggle">
+        <button
+          className={`mode-button ${!isCelebrityMode ? 'active' : ''}`}
+          onClick={() => toggleMode(false)}
+        >
+          일반 모드
+        </button>
+        <button
+          className={`mode-button ${isCelebrityMode ? 'active' : ''}`}
+          onClick={() => toggleMode(true)}
+        >
+          연예인 모드
+        </button>
+      </div>
     </div>
   );
 };

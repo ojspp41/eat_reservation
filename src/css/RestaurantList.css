@@ -62,20 +62,24 @@
   /* 반응형 디자인 */
  /* Splash screen styles */
 /* Splash screen styles */
+/* Splash screen styles */
 .splash-screen {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #fff;
+  background-image: url('/images/cha.jpg'); /* 배경 이미지 설정 */
+  background-size: cover; /* 이미지가 화면을 완전히 채우도록 설정 */
+  background-position: center; /* 이미지 중앙 정렬 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
   text-align: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  opacity: 1;
+  opacity: 0.85;
   transition: opacity 0.2s ease-in-out;
 }
 
@@ -84,21 +88,18 @@
   pointer-events: none;
 }
 
-.splash-logo {
-  width: 150px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
 .splash-title {
-  font-size: 40px;
+  font-size: 48px; /* 제목 크기 확대 */
   font-weight: bold;
+  color: rgb(0, 0, 0); /* 글씨 색상 흰색으로 설정 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 텍스트를 선명하게 보이도록 그림자 추가 */
   margin-bottom: 10px;
 }
 
 .splash-description {
-  font-size: 20px;
-  color: #555;
+  font-size: 24px; /* 설명 글씨 크기 확대 */
+  color: rgb(0, 0, 0); /* 글씨 색상 흰색으로 설정 */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* 텍스트를 선명하게 보이도록 그림자 추가 */
 }
 
 /* Main content styles */
@@ -159,3 +160,48 @@
 .card-content button:hover {
   background-color: #ff4757;
 }
+/* 오른쪽 아래 챗봇 버튼 */
+.chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.chatbot-button img {
+  width: 50px;
+  height: 50px;
+}
+
+/* 툴팁 스타일 */
+.chatbot-tooltip {
+  position: absolute;
+  top: -40px; /* 툴팁 위치 조정 */
+  left: 50%; /* 툴팁 중앙 정렬 */
+  transform: translateX(-50%);
+  background-color: white; /* 배경 흰색 */
+  color: black; /* 글씨 검정색 */
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-align: center; /* 텍스트 중앙 정렬 */
+  white-space: nowrap; /* 줄바꿈 방지 */
+  border: 1px solid #ccc; /* 경계선 추가 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
+}
+
+.chatbot-button:hover .chatbot-tooltip {
+  opacity: 1;
+}
+
