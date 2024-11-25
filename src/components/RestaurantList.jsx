@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import { showSplashState } from '../state'; // Import Recoil state
 import { useNavigate } from 'react-router-dom';
 import restaurants from '../data/restaurants';
 import celebrityRestaurants from '../data/celebrityRestaurants'; // 연예인 모드 데이터
@@ -7,31 +9,33 @@ import Navbar from './Navbar'; // 네브바 컴포넌트 임포트
 import '../css/RestaurantList.css'; // CSS 파일 임포트
 
 const RestaurantList = () => {
-  const [showSplash, setShowSplash] = useState(true); // 스플래시 화면 상태 (초기값 true)
+  const [showSplash, setShowSplash] = useRecoilState(showSplashState); // 스플래시 화면 상태 (초기값 true)
   const [fadeOut, setFadeOut] = useState(false); // 페이드 아웃 상태
-  const [isCelebrityMode, setIsCelebrityMode] = useState(false); // 연예인 모드 상태
+  const [isCelebrityMode, setIsCelebrityMode] = useState(true); // 연예인 모드 상태
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 1.8초 후 페이드 아웃 시작
-    const fadeTimer = setTimeout(() => {
-      setFadeOut(true);
-    }, 1800);
+    if (showSplash) {
+      // 1.8 seconds later, start fade-out
+      const fadeTimer = setTimeout(() => {
+        setFadeOut(true);
+      }, 1800);
 
-    // 2초 후 스플래시 화면 숨기기
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-    }, 2000);
+      // 2 seconds later, hide splash screen
+      const timer = setTimeout(() => {
+        setShowSplash(false);
+      }, 2000);
 
-    // 타이머 정리
-    return () => {
-      clearTimeout(fadeTimer);
-      clearTimeout(timer);
-    };
-  }, []);
+      // Clear timers
+      return () => {
+        clearTimeout(fadeTimer);
+        clearTimeout(timer);
+      };
+    }
+  }, [showSplash, setShowSplash]);
 
   const handleChatbotClick = () => {
-    alert('새롭게 구현중입니다!');
+    alert('맛집 추천 챗봇으로 이동합니다!');
   };
 
   const toggleMode = (isCelebrity) => {

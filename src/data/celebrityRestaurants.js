@@ -67,6 +67,23 @@ const celebrityRestaurants = [
       { id: 10, name: "핫초코", price: 4500 },
     ],
   },
+  {
+    id: 5,// Updated title
+    name: "뉴진스가 반한 횟집",
+    image: "/images/newjeans.jpg",
+    menus: [
+      { id: 1, name: "모둠회 (소)", price: 60000 },
+      { id: 2, name: "모둠회 (중)", price: 80000 },
+      { id: 3, name: "모둠회 (대)", price: 100000 },
+      { id: 4, name: "전복 회", price: 30000 },
+      { id: 5, name: "해산물 모둠", price: 40000 },
+      { id: 6, name: "멍게", price: 20000 },
+      { id: 7, name: "해삼", price: 20000 },
+      { id: 8, name: "도미 회", price: 45000 },
+      { id: 9, name: "광어 회", price: 40000 },
+      { id: 10, name: "돌문어 숙회", price: 35000 },
+    ],
+  }
 ];
 
 export default celebrityRestaurants;

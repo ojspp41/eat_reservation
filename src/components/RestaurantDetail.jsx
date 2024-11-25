@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import restaurants from "../data/restaurants";
 import ReservationModal from "./ReservationModal";
 import "../css/RestaurantDetail.css"; // CSS 파일 임포트
-
+import Navbar from "./Navbar";
 const RestaurantDetail = () => {
   const { id } = useParams();
   const restaurant = restaurants.find((res) => res.id === Number(id));
@@ -114,6 +114,8 @@ const RestaurantDetail = () => {
 
   return (
     <div className="restaurant-detail">
+      
+    <Navbar/>
       <h2 className="restaurant-name">{restaurant.name}</h2>
       <h3 className="menu-title">메뉴</h3>
       <ul className="menu-list">

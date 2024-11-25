@@ -1,0 +1,35 @@
+.ar-page {
+    background-image: url('/images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+  }
+  
+  .invisible-box {
+    position: absolute;
+    left: 12%;
+    top: 50%;
+    border-radius: 30%;
+    width: 160px;
+    height: 160px;
+    background-color: rgba(255, 255, 255, 0.7); /* 투명 박스 (디버그용, 필요 시 삭제) */
+    cursor: pointer; /* 클릭 가능 표시 */
+    z-index: 10000; /* 클릭 우선순위 높임 */
+    animation: blink 2s infinite; /* 깜박이는 애니메이션 추가 */
+  }
+  
+  /* 깜박이는 효과 (opacity 조정) */
+  @keyframes blink {
+    0%, 100% {
+      opacity: 0; /* 완전히 투명 */
+    }
+    50% {
+      opacity: 1; /* 완전히 보이기 */
+    }
+  }
+  

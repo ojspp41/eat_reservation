@@ -12,10 +12,15 @@
 }
 
 .back-button img {
-  width: 20px;
+  width: 30px;
   height: auto;
+  
 }
-
+.back-button{
+  background-color: #fff;
+  border: none;
+  
+}
 .logo-container {
   display: flex;
   align-items: center;

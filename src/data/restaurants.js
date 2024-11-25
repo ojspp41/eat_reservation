@@ -69,23 +69,6 @@ const restaurants = [
   },
   {
     id: 5,
-    name: "제주 감귤 밭 식당",
-    image: "/images/jeju_orange_farm.jpg",
-    menus: [
-      { id: 1, name: "감귤 비빔밥", price: 8000 },
-      { id: 2, name: "감귤 샐러드", price: 7500 },
-      { id: 3, name: "감귤 에이드", price: 5000 },
-      { id: 4, name: "감귤 주스", price: 5000 },
-      { id: 5, name: "감귤 아이스크림", price: 4500 },
-      { id: 6, name: "감귤 타르트", price: 6000 },
-      { id: 7, name: "감귤 피클", price: 5000 },
-      { id: 8, name: "감귤 떡", price: 4000 },
-      { id: 9, name: "감귤 초콜릿", price: 5500 },
-      { id: 10, name: "감귤 막걸리", price: 7000 },
-    ],
-  },
-  {
-    id: 6,
     name: "중문 바닷가 횟집",
     image: "/images/jungmun_sashimi.jpg",
     menus: [
@@ -101,6 +84,24 @@ const restaurants = [
       { id: 10, name: "돌문어 숙회", price: 35000 },
     ],
   },
+  {
+    id: 6,
+    name: "제주 감귤 밭 식당",
+    image: "/images/jeju_orange_farm.jpg",
+    menus: [
+      { id: 1, name: "감귤 비빔밥", price: 8000 },
+      { id: 2, name: "감귤 샐러드", price: 7500 },
+      { id: 3, name: "감귤 에이드", price: 5000 },
+      { id: 4, name: "감귤 주스", price: 5000 },
+      { id: 5, name: "감귤 아이스크림", price: 4500 },
+      { id: 6, name: "감귤 타르트", price: 6000 },
+      { id: 7, name: "감귤 피클", price: 5000 },
+      { id: 8, name: "감귤 떡", price: 4000 },
+      { id: 9, name: "감귤 초콜릿", price: 5500 },
+      { id: 10, name: "감귤 막걸리", price: 7000 },
+    ],
+  },
+  
   {
     id: 7,
     name: "한림 해산물 레스토랑",

@@ -11,7 +11,7 @@ const ReservationModal = ({ isOpen, onClose }) => {
 
   const handleConfirm = () => {
     onClose(); // 모달 닫기
-    navigate("/"); // 홈 페이지로 이동
+    navigate("/ar"); // 홈 페이지로 이동
   };
 
   return (
