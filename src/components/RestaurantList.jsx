@@ -7,34 +7,27 @@ import Navbar from './Navbar'; // 네브바 컴포넌트 임포트
 import '../css/RestaurantList.css'; // CSS 파일 임포트
 
 const RestaurantList = () => {
-  const [showSplash, setShowSplash] = useState(false); // 스플래시 화면 상태
+  const [showSplash, setShowSplash] = useState(true); // 스플래시 화면 상태 (초기값 true)
   const [fadeOut, setFadeOut] = useState(false); // 페이드 아웃 상태
   const [isCelebrityMode, setIsCelebrityMode] = useState(false); // 연예인 모드 상태
   const navigate = useNavigate();
 
   useEffect(() => {
-    const splashShown = localStorage.getItem('splashShown');
+    // 1.8초 후 페이드 아웃 시작
+    const fadeTimer = setTimeout(() => {
+      setFadeOut(true);
+    }, 1800);
 
-    // 스플래시 화면이 한 번도 표시되지 않았다면 표시
-    if (!splashShown) {
-      setShowSplash(true);
+    // 2초 후 스플래시 화면 숨기기
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 2000);
 
-      // 1.8초 후 페이드 아웃 시작
-      const fadeTimer = setTimeout(() => {
-        setFadeOut(true);
-      }, 1800);
-
-      // 2초 후 스플래시 화면 숨기기 및 로컬스토리지에 저장
-      const timer = setTimeout(() => {
-        setShowSplash(false);
-        localStorage.setItem('splashShown', 'true'); // 로컬스토리지에 플래그 저장
-      }, 2000);
-
-      return () => {
-        clearTimeout(fadeTimer);
-        clearTimeout(timer);
-      };
-    }
+    // 타이머 정리
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(timer);
+    };
   }, []);
 
   const handleChatbotClick = () => {
